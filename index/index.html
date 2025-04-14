@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Age Calculator</h1>
+        <form method="POST">
+            <input type="number" name="year" placeholder="Enter birth year (YYYY)" required>
+            <input type="number" name="month" placeholder="Enter birth month (MM)" required>
+            <input type="number" name="day" placeholder="Enter birth day (DD)" required>
+            <button type="submit">Calculate Age</button>
+        </form>
+
+        {% if age %}
+            <div class="result">
+                {% if age is string %}
+                    <p>{{ age }}</p>
+                {% else %}
+                    <p>Your age is: <strong>{{ age }}</strong> years</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
